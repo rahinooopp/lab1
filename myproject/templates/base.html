@@ -1,0 +1,18 @@
+{% load static %}
+<html>
+    <head>
+<title>{%block title %} django{%endblock%}</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<script src="{% static 'js/main.js' %}"></script>
+    </head>
+    <body>
+        <h1 class="t1">header</h1>
+        <div>
+
+            {%block content %}
+            base content
+            {%endblock%} <!-- to make dynamic content اقدر اعدله في صفحه تانيه -->
+        </div>
+        <h2> footer </h2 >
+    </body>
+</html>
