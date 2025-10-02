@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>All Trainee</h1>
+
+    <table width="100%" border="1">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+            <th>img</th>
+            <th>actions</th>
+        </tr>
+        {% for t in trainee %}
+        <tr style="text-align: center; background-color: rgb(123, 162, 216);">
+            <td>{{ t.id }}</td>
+            <td>{{ t.name }}</td>
+            <td>{{ t.email }}</td>
+            <td>
+                {% if t.photo %}
+                    <img src="{{ t.photo.url }}" alt="{{ t.name }}" width="200" height="200" style="display:block; margin:auto;">
+                {% else %}
+                    No Image
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'updatetrainee' t.id %}">update trainee</a> | 
+                <a href="{% url 'deletetrainee' t.id %}">delete trainee</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+<link rel="stylesheet" href="{%static 'css/insert.css'%}">
+<h1>insert trainee</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="trname">
+        Name:
+    </label>
+<input type="text" id="trname" name="trname" required>
+<br> <br>
+<label for="tremail">
+    Email:
+</label>
+<input type="email" name="tremail" id="tremail">
+<br>
+<br>
+<label for="trphoto">upload image:</label>
+<input type="file" id="trphoto" name="trphoto"    >
+<br> <br>
+<button>submit</button>
+</form>
+{%endblock%}
